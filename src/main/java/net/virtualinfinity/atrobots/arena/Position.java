@@ -53,12 +53,12 @@ public class Position {
         return vector;
     }
 
-    public static Position random(double lowerX, double lowerY, double higherX, double higherY) {
+    public static Position random(NewClazz002692184573652041Position parameterObject) {
         final Position position = new Position();
         Random random = new Random();
         position.vector = Vector.createCartesian(
-                (lowerX + random.nextDouble() * (higherX - lowerX)),
-                (lowerY + random.nextDouble() * (higherY - lowerY)));
+                (parameterObject.getLowerX() + random.nextDouble() * (parameterObject.getHigherX() - parameterObject.getLowerX())),
+                (parameterObject.getLowerY() + random.nextDouble() * (parameterObject.getHigherY() - parameterObject.getLowerY())));
         position.lastVector = position.vector;
         return position;
     }

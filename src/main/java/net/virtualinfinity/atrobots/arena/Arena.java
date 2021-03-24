@@ -138,7 +138,7 @@ public class Arena {
      * @param robot the robot to add to this arena.
      */
     public void addRobot(TangibleArenaObject robot) {
-        robot.getPosition().copyFrom(Position.random(0.0, 0.0, 1000.0, 1000.0));
+        robot.getPosition().copyFrom(Position.random(new NewClazz002692184573652041Position(0.0, 0.0, 1000.0, 1000.0)));
         connectArena(robot);
         activeRobots.add(robot);
         allRobots.add(robot);
