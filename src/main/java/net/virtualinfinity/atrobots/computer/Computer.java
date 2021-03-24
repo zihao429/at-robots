@@ -232,7 +232,7 @@ public class Computer implements PortListener, Restartable {
     }
 
     public PortHandler createDefaultPortHandler() {
-        return new InvalidPort().setPortListener(Computer.this);
+        return new Computer().setPortListener(Computer.this);
     }
 
     public MemoryRegion getCommQueueMemoryRegion() {
@@ -399,5 +399,8 @@ public class Computer implements PortListener, Restartable {
             lastMessage = "Write to ROM.";
         }
     }
+
+	public Computer() {
+	    }
 
 }
