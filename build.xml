@@ -10,8 +10,8 @@
   <property name="compile.debug"           value="true"/>
   <property name="compile.deprecation"     value="true"/>
   <property name="compile.optimize"        value="false"/>
-  <property name="compile.source"          value="1.6"/>
-  <property name="compile.target"          value="1.6"/>
+  <property name="compile.source"          value="1.7"/>
+  <property name="compile.target"          value="1.7"/>
   <property name="compile.encoding"        value="iso-8859-1"/>
   
 	
