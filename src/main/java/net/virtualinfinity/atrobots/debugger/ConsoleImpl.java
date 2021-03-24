@@ -12,10 +12,10 @@ public class ConsoleImpl implements Console {
     private final ConsoleOutput output;
     private final ConsoleOutput error;
 
-    public ConsoleImpl(ConsoleInput input, ConsoleOutput output, ConsoleOutput error) {
-        this.input = input;
-        this.output = output;
-        this.error = error;
+    public ConsoleImpl(NewClazz003148365408355007ConsoleImpl parameterObject) {
+        this.input = parameterObject.getInput();
+        this.output = parameterObject.getOutput();
+        this.error = parameterObject.getError();
     }
 
     public void println(Object o) {

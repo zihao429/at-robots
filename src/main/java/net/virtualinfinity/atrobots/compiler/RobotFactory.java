@@ -36,7 +36,7 @@ public class RobotFactory {
     }
 
     private static Console getSystemConsole() {
-        return new ConsoleImpl(new ReaderConsoleInput(System.in), new PrintStreamConsoleOutput(System.out), new PrintStreamConsoleOutput(System.err));
+        return new ConsoleImpl(new NewClazz003148365408355007ConsoleImpl(new ReaderConsoleInput(System.in), new PrintStreamConsoleOutput(System.out), new PrintStreamConsoleOutput(System.err)));
     }
 
     /**
