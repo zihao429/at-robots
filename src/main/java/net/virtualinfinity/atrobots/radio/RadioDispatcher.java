@@ -13,9 +13,9 @@ public class RadioDispatcher {
         radioListeners.add(radioListener);
     }
 
-    public void dispatch(RadioListener source, int channel, short value) {
+    public void dispatch(NewClazz004586089396494062RadioDispatcher parameterObject) {
         for (RadioListener listener : radioListeners) {
-            listener.radioSignal(source, channel, value);
+            listener.radioSignal(parameterObject.getSource(), parameterObject.getChannel(), parameterObject.getValue());
         }
     }
 }

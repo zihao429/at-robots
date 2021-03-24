@@ -2,6 +2,7 @@ package net.virtualinfinity.atrobots.hardware.radio;
 
 import net.virtualinfinity.atrobots.comqueue.CommunicationsQueue;
 import net.virtualinfinity.atrobots.ports.PortHandler;
+import net.virtualinfinity.atrobots.radio.NewClazz004586089396494062RadioDispatcher;
 import net.virtualinfinity.atrobots.radio.RadioDispatcher;
 import net.virtualinfinity.atrobots.radio.RadioListener;
 
@@ -14,7 +15,7 @@ public class Transceiver implements RadioListener {
     private CommunicationsQueue commQueue;
 
     public void send(short value) {
-        radioDispatcher.dispatch(this, channel, value);
+        radioDispatcher.dispatch(new NewClazz004586089396494062RadioDispatcher(this, channel, value));
     }
 
     public PortHandler getChannelLatchPort() {
