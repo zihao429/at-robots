@@ -71,23 +71,23 @@ public class LineNumberReaderCompiler {
 
     private class MyLineVisitor implements LineVisitor {
         public void expectedDigit(int column, int lineNumber) {
-            errors.add("Expected digit.", lineNumber, column);
+            errors.add(new NewClazz008757765858644074Errors("Expected digit.", lineNumber, column));
         }
 
         public void expectedDirectiveName(int column, int lineNumber) {
-            errors.add("Expected directive.", lineNumber, column);
+            errors.add(new NewClazz008757765858644074Errors("Expected directive.", lineNumber, column));
         }
 
         public void unexpectedCharacter(int column, int lineNumber) {
-            errors.add("Unexpected character", lineNumber, column);
+            errors.add(new NewClazz008757765858644074Errors("Unexpected character", lineNumber, column));
         }
 
         public void invalidVariableNameChar(int column, int lineNumber) {
-            errors.add("Invalid character in variable name", lineNumber, column);
+            errors.add(new NewClazz008757765858644074Errors("Invalid character in variable name", lineNumber, column));
         }
 
         public void expectedDeviceName(int column, int lineNumber) {
-            errors.add("Expected device name", lineNumber, column);
+            errors.add(new NewClazz008757765858644074Errors("Expected device name", lineNumber, column));
         }
 
         public void expectedMoreTokens(int lineNumber) {

@@ -29,13 +29,10 @@ public class Errors {
 
     /**
      * Add an error message on the given line number and column.
-     *
-     * @param error      the message.
-     * @param lineNumber the line number.
-     * @param column     the column
+     * @param parameterObject TODO
      */
-    public void add(String error, int lineNumber, int column) {
-        messages.add("Line " + lineNumber + "," + column + ": " + error);
+    public void add(NewClazz008757765858644074Errors parameterObject) {
+        messages.add("Line " + parameterObject.getLineNumber() + "," + parameterObject.getColumn() + ": " + parameterObject.getError());
     }
 
     /**
