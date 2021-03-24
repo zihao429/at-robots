@@ -64,7 +64,8 @@ public class AtRobotInterruptFactory {
     }
 
     private InterruptHandler createGetGameInfoInterrupt(NewClazz0036385873164493443AtRobotInterruptFactory parameterObject) {
-        return new GetGameInfoInterrupt(getDxCell(parameterObject.getRobot()), getExCell(parameterObject.getRobot()), getFxCell(parameterObject.getRobot()), parameterObject.getRoundState().getTotalRounds(), parameterObject.getRoundState().getRoundNumber(), parameterObject.getArena());
+        return new GetGameInfoInterrupt(new NewClazz009212036166466318GetGameInfoInterrupt(getDxCell(parameterObject.getRobot()), getExCell(parameterObject.getRobot()), getFxCell(parameterObject.getRobot()), parameterObject.getRoundState().getTotalRounds(), parameterObject.getRoundState().getRoundNumber(),
+				parameterObject.getArena()));
     }
 
     private InterruptHandler createGetTargetInfoInterrupt(Robot robot) {

@@ -15,13 +15,13 @@ public class GetGameInfoInterrupt extends InterruptHandler {
     private final short roundNumberValue;
     private final Arena arena;
 
-    public GetGameInfoInterrupt(MemoryCell activeRobots, MemoryCell currentRound, MemoryCell totalRounds, int totalRoundsValue, int roundNumber, Arena arena) {
-        this.activeRobots = activeRobots;
-        this.currentRound = currentRound;
-        this.totalRounds = totalRounds;
-        this.totalRoundsValue = (short) totalRoundsValue;
-        this.roundNumberValue = (short) roundNumber;
-        this.arena = arena;
+    public GetGameInfoInterrupt(NewClazz009212036166466318GetGameInfoInterrupt parameterObject) {
+        this.activeRobots = parameterObject.getActiveRobots();
+        this.currentRound = parameterObject.getCurrentRound();
+        this.totalRounds = parameterObject.getTotalRounds();
+        this.totalRoundsValue = (short) parameterObject.getTotalRoundsValue();
+        this.roundNumberValue = (short) parameterObject.getRoundNumber();
+        this.arena = parameterObject.getArena();
     }
 
     public void handleInterrupt() {
