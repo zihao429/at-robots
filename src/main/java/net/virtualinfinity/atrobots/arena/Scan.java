@@ -20,13 +20,13 @@ public class Scan extends ArenaObject {
     private final int accuracy;
     private int frame;
 
-    public Scan(AngleBracket angleBracket, double maxDistance, boolean successful, Vector matchPositionVector, boolean accuracyAvailable, int accuracy) {
-        this.accuracyAvailable = accuracyAvailable;
-        this.accuracy = accuracy;
-        this.angleBracket = angleBracket;
-        this.maxDistance = maxDistance;
-        this.successful = successful;
-        this.matchPositionVector = matchPositionVector;
+    public Scan(NewClazz007461909774589633Scan parameterObject) {
+        this.accuracyAvailable = parameterObject.isAccuracyAvailable();
+        this.accuracy = parameterObject.getAccuracy();
+        this.angleBracket = parameterObject.getAngleBracket();
+        this.maxDistance = parameterObject.getMaxDistance();
+        this.successful = parameterObject.isSuccessful();
+        this.matchPositionVector = parameterObject.getMatchPositionVector();
     }
 
     protected ArenaObjectSnapshot createSpecificSnapshot() {

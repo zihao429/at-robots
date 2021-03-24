@@ -274,7 +274,7 @@ public class Robot extends TangibleArenaObject implements Resettable, HasHeading
         final RobotScanner robotScanner = new RobotScanner(this, position, angleBracket, maxDistance, calculateAccuracy);
         getArena().visitActiveRobots(robotScanner);
         final RobotScanResult scanResult = robotScanner.toScanResult();
-        final Scan object = new Scan(angleBracket, maxDistance, scanResult.successful(), scanResult.getMatchPositionVector(), calculateAccuracy && scanResult.successful(), scanResult.getAccuracy());
+        final Scan object = new Scan(new NewClazz007461909774589633Scan(angleBracket, maxDistance, scanResult.successful(), scanResult.getMatchPositionVector(), calculateAccuracy && scanResult.successful(), scanResult.getAccuracy()));
         getArena().addIntangible(object);
         object.getPosition().copyFrom(position);
         return scanResult;
