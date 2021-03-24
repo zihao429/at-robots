@@ -13,7 +13,7 @@ public class SnapshotToJson implements SnapshotVisitor {
     private JSONArray snapshots = new JSONArray();
 
     public JSONObject getBasicJson(ArenaObjectSnapshot snapshot, String type) throws JSONException {
-        return getBasicJson(new NewClazz00954673724105523SnapshotToJson(snapshot, type, true));
+        return getBasicJson(new NewClazz00954673724105523SnapshotToJson(new NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson(snapshot, type, true)));
     }
 
     public JSONObject getBasicJson(NewClazz00954673724105523SnapshotToJson parameterObject) throws JSONException {
@@ -69,7 +69,7 @@ public class SnapshotToJson implements SnapshotVisitor {
     public void acceptMine(MineSnapshot mineSnapshot) {
         try {
             snapshots.put(
-                    getBasicJson(new NewClazz00954673724105523SnapshotToJson(mineSnapshot, "mine", false))
+                    getBasicJson(new NewClazz00954673724105523SnapshotToJson(new NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson(mineSnapshot, "mine", false)))
                             .put("triggerRadius", mineSnapshot.getTriggerRadius())
             );
         } catch (JSONException e) {
@@ -81,7 +81,7 @@ public class SnapshotToJson implements SnapshotVisitor {
     public void acceptExplosion(ExplosionSnapshot explosionSnapshot) {
         try {
             snapshots.put(
-                    getBasicJson(new NewClazz00954673724105523SnapshotToJson(explosionSnapshot, "explosion", false))
+                    getBasicJson(new NewClazz00954673724105523SnapshotToJson(new NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson(explosionSnapshot, "explosion", false)))
                             .put("age", explosionSnapshot.getAge().getCycles())
                             .put("initialRadius", explosionSnapshot.getRadius())
             );
@@ -92,7 +92,7 @@ public class SnapshotToJson implements SnapshotVisitor {
 
     public void acceptScan(ScanSnapshot scanSnapshot) {
         try {
-            final JSONObject scan = getBasicJson(new NewClazz00954673724105523SnapshotToJson(scanSnapshot, "scan", false))
+            final JSONObject scan = getBasicJson(new NewClazz00954673724105523SnapshotToJson(new NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson(scanSnapshot, "scan", false)))
                     .put("sector", getAngleBracket(scanSnapshot.getAngleBracket()).put("radius", scanSnapshot.getMaxDistance())
                     );
             scan.put("successful", scanSnapshot.isSuccessful());

@@ -2,15 +2,16 @@ package net.virtualinfinity.atrobots.json;
 
 import net.virtualinfinity.atrobots.snapshots.ArenaObjectSnapshot;
 
-public class NewClazz00954673724105523SnapshotToJson {
+public class NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson {
 	private ArenaObjectSnapshot snapshot;
 	private String type;
 	private boolean includeVelocity;
 
-	public NewClazz00954673724105523SnapshotToJson(NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson parameterObject) {
-		this.snapshot = parameterObject.getSnapshot();
-		this.type = parameterObject.getType();
-		this.includeVelocity = parameterObject.isIncludeVelocity();
+	public NewClazz00826031723259842NewClazz00954673724105523SnapshotToJson(ArenaObjectSnapshot snapshot, String type,
+			boolean includeVelocity) {
+		this.snapshot = snapshot;
+		this.type = type;
+		this.includeVelocity = includeVelocity;
 	}
 
 	public ArenaObjectSnapshot getSnapshot() {
