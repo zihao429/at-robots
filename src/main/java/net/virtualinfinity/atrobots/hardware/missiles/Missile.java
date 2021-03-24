@@ -1,6 +1,7 @@
 package net.virtualinfinity.atrobots.hardware.missiles;
 
 import net.virtualinfinity.atrobots.ArenaObjectVisitor;
+import net.virtualinfinity.atrobots.arena.Heading;
 import net.virtualinfinity.atrobots.arena.LinearDamageFunction;
 import net.virtualinfinity.atrobots.arena.Position;
 import net.virtualinfinity.atrobots.arena.Speed;
@@ -9,6 +10,7 @@ import net.virtualinfinity.atrobots.arenaobjects.ArenaObject;
 import net.virtualinfinity.atrobots.arenaobjects.CollidableArenaObject;
 import net.virtualinfinity.atrobots.arenaobjects.DamageInflicter;
 import net.virtualinfinity.atrobots.measures.Duration;
+import net.virtualinfinity.atrobots.measures.NewClazz00615813240367618Vector;
 import net.virtualinfinity.atrobots.measures.Vector;
 import net.virtualinfinity.atrobots.snapshots.ArenaObjectSnapshot;
 import net.virtualinfinity.atrobots.snapshots.MissileSnapshot;
@@ -67,7 +69,7 @@ public class Missile extends CollidableArenaObject {
     }
 
     private Vector getCollisionPoint(ArenaObject arenaObject) {
-        return arenaObject.getPosition().getVector().perpendicularIntersectionFrom(getPosition().getVector(), heading.getAngle(), speed.times(Duration.ONE_CYCLE));
+        return arenaObject.getPosition().getVector().perpendicularIntersectionFrom(new NewClazz00615813240367618Vector(getPosition().getVector(), heading.getAngle(), speed.times(Duration.ONE_CYCLE)));
     }
 
 

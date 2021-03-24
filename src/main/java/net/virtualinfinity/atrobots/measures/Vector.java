@@ -105,16 +105,14 @@ public abstract class Vector {
     /**
      * Find the intersection of the given line segment with the line that is perpendicular to the given line and goes
      * through the point represented by this vector.
+     * @param parameterObject TODO
      *
-     * @param linePoint     the start of the line segment.
-     * @param lineSlope     the angle of the line segment.
-     * @param segmentLength the length of the segment
      * @return the point where the segment intersects the line.
      */
-    public Vector perpendicularIntersectionFrom(Vector linePoint, AbsoluteAngle lineSlope, double segmentLength) {
-        final Vector intersectionVector = lineSlope.projectAngle(minus(linePoint));
-        if (intersectionVector.getMagnitude() < (segmentLength))
-            return intersectionVector.plus(linePoint);
+    public Vector perpendicularIntersectionFrom(NewClazz00615813240367618Vector parameterObject) {
+        final Vector intersectionVector = parameterObject.getLineSlope().projectAngle(minus(parameterObject.getLinePoint()));
+        if (intersectionVector.getMagnitude() < (parameterObject.getSegmentLength()))
+            return intersectionVector.plus(parameterObject.getLinePoint());
         else {
             return null;
         }
