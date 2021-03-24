@@ -13,19 +13,19 @@ public class SnapshotToJson implements SnapshotVisitor {
     private JSONArray snapshots = new JSONArray();
 
     public JSONObject getBasicJson(ArenaObjectSnapshot snapshot, String type) throws JSONException {
-        return getBasicJson(snapshot, type, true);
+        return getBasicJson(new NewClazz00954673724105523SnapshotToJson(snapshot, type, true));
     }
 
-    public JSONObject getBasicJson(ArenaObjectSnapshot snapshot, String type, boolean includeVelocity) throws JSONException {
+    public JSONObject getBasicJson(NewClazz00954673724105523SnapshotToJson parameterObject) throws JSONException {
         final JSONObject jsonObject = new JSONObject();
-        jsonObject.put("type", type);
-        jsonObject.put("x", snapshot.getX());
-        jsonObject.put("y", snapshot.getY());
-        if (includeVelocity) {
-            jsonObject.put("deltaX", snapshot.getVelocityX());
-            jsonObject.put("deltaY", snapshot.getVelocityY());
+        jsonObject.put("type", parameterObject.getType());
+        jsonObject.put("x", parameterObject.getSnapshot().getX());
+        jsonObject.put("y", parameterObject.getSnapshot().getY());
+        if (parameterObject.isIncludeVelocity()) {
+            jsonObject.put("deltaX", parameterObject.getSnapshot().getVelocityX());
+            jsonObject.put("deltaY", parameterObject.getSnapshot().getVelocityY());
         }
-        jsonObject.put("status", snapshot.isDead() ? "dead" : "alive");
+        jsonObject.put("status", parameterObject.getSnapshot().isDead() ? "dead" : "alive");
 
         return jsonObject;
     }
@@ -69,7 +69,7 @@ public class SnapshotToJson implements SnapshotVisitor {
     public void acceptMine(MineSnapshot mineSnapshot) {
         try {
             snapshots.put(
-                    getBasicJson(mineSnapshot, "mine", false)
+                    getBasicJson(new NewClazz00954673724105523SnapshotToJson(mineSnapshot, "mine", false))
                             .put("triggerRadius", mineSnapshot.getTriggerRadius())
             );
         } catch (JSONException e) {
@@ -81,7 +81,7 @@ public class SnapshotToJson implements SnapshotVisitor {
     public void acceptExplosion(ExplosionSnapshot explosionSnapshot) {
         try {
             snapshots.put(
-                    getBasicJson(explosionSnapshot, "explosion", false)
+                    getBasicJson(new NewClazz00954673724105523SnapshotToJson(explosionSnapshot, "explosion", false))
                             .put("age", explosionSnapshot.getAge().getCycles())
                             .put("initialRadius", explosionSnapshot.getRadius())
             );
@@ -92,7 +92,7 @@ public class SnapshotToJson implements SnapshotVisitor {
 
     public void acceptScan(ScanSnapshot scanSnapshot) {
         try {
-            final JSONObject scan = getBasicJson(scanSnapshot, "scan", false)
+            final JSONObject scan = getBasicJson(new NewClazz00954673724105523SnapshotToJson(scanSnapshot, "scan", false))
                     .put("sector", getAngleBracket(scanSnapshot.getAngleBracket()).put("radius", scanSnapshot.getMaxDistance())
                     );
             scan.put("successful", scanSnapshot.isSuccessful());
