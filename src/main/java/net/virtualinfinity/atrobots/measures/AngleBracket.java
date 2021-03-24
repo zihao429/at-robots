@@ -49,9 +49,9 @@ public class AngleBracket {
 
             @Override
 
-            public Shape toShape(double x, double y, double radius) {
+            public Shape toShape(NewClazz001793556769186061AngleBracket parameterObject) {
                 final Ellipse2D ellipse2D = new Ellipse2D.Double();
-                ellipse2D.setFrameFromCenter(x, y, x + (radius), y + (radius));
+                ellipse2D.setFrameFromCenter(parameterObject.getX(), parameterObject.getY(), parameterObject.getX() + (parameterObject.getRadius()), parameterObject.getY() + (parameterObject.getRadius()));
                 return ellipse2D;
             }
         };
@@ -74,9 +74,9 @@ public class AngleBracket {
     }
 
 
-    public Shape toShape(double x, double y, double radius) {
+    public Shape toShape(NewClazz001793556769186061AngleBracket parameterObject) {
         final Arc2D.Double arc = new Arc2D.Double();
-        arc.setArcByCenter(x, y, radius, -counterClockwiseBound.getDegrees(),
+        arc.setArcByCenter(parameterObject.getX(), parameterObject.getY(), parameterObject.getRadius(), -counterClockwiseBound.getDegrees(),
                 rangeSize.getDegrees(), Arc2D.PIE);
         return arc;
     }

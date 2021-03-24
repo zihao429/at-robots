@@ -1,6 +1,7 @@
 package net.virtualinfinity.atrobots.snapshots;
 
 import net.virtualinfinity.atrobots.measures.AngleBracket;
+import net.virtualinfinity.atrobots.measures.NewClazz001793556769186061AngleBracket;
 import net.virtualinfinity.atrobots.measures.Vector;
 
 import java.awt.*;
@@ -50,7 +51,7 @@ public class ScanSnapshot extends ArenaObjectSnapshot {
     }
 
     private Shape shapeFor(AngleBracket bracket) {
-        return bracket.toShape(getPositionVector().getX(), getPositionVector().getY(), getMaxDistance());
+        return bracket.toShape(new NewClazz001793556769186061AngleBracket(getPositionVector().getX(), getPositionVector().getY(), getMaxDistance()));
     }
 
     public Shape getAccuracyArea() {
