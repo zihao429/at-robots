@@ -61,7 +61,7 @@ public class MissileLauncher {
     }
 
     private Missile createMissile(RelativeAngle shift) {
-        return new Missile(damageInflicter, position, getMissileHeading(shift), getPower(), overburner.isOverburn());
+        return new Missile(new NewClazz004259518263177545Missile(damageInflicter, position, getMissileHeading(shift), getPower(), overburner.isOverburn()));
     }
 
     private double getPower() {

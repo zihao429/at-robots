@@ -8,7 +8,6 @@ import net.virtualinfinity.atrobots.arena.TangibleArenaObject;
 import net.virtualinfinity.atrobots.arenaobjects.ArenaObject;
 import net.virtualinfinity.atrobots.arenaobjects.CollidableArenaObject;
 import net.virtualinfinity.atrobots.arenaobjects.DamageInflicter;
-import net.virtualinfinity.atrobots.measures.AbsoluteAngle;
 import net.virtualinfinity.atrobots.measures.Duration;
 import net.virtualinfinity.atrobots.measures.Vector;
 import net.virtualinfinity.atrobots.snapshots.ArenaObjectSnapshot;
@@ -25,13 +24,13 @@ public class Missile extends CollidableArenaObject {
     private final boolean overburn;
     private Duration age = Duration.ZERO_CYCLE;
 
-    public Missile(DamageInflicter damageInflicter, Position position, AbsoluteAngle angle, double power, boolean overburn) {
-        this.damageInflicter = damageInflicter;
-        this.power = power;
-        this.position.copyFrom(position);
-        this.heading.setAngle(angle);
-        this.overburn = overburn;
-        getSpeed().setDistanceOverTime((32) * (power), Duration.ONE_CYCLE);
+    public Missile(NewClazz004259518263177545Missile parameterObject) {
+        this.damageInflicter = parameterObject.getDamageInflicter();
+        this.power = parameterObject.getPower();
+        this.position.copyFrom(parameterObject.getPosition());
+        this.heading.setAngle(parameterObject.getAngle());
+        this.overburn = parameterObject.isOverburn();
+        getSpeed().setDistanceOverTime((32) * (parameterObject.getPower()), Duration.ONE_CYCLE);
     }
 
     protected ArenaObjectSnapshot createSpecificSnapshot() {

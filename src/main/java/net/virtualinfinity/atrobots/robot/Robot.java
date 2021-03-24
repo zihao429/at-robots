@@ -12,6 +12,7 @@ import net.virtualinfinity.atrobots.hardware.heatsinks.HeatSinks;
 import net.virtualinfinity.atrobots.hardware.mines.MineLayer;
 import net.virtualinfinity.atrobots.hardware.missiles.Missile;
 import net.virtualinfinity.atrobots.hardware.missiles.MissileFactory;
+import net.virtualinfinity.atrobots.hardware.missiles.NewClazz004259518263177545Missile;
 import net.virtualinfinity.atrobots.hardware.radio.Transceiver;
 import net.virtualinfinity.atrobots.hardware.scanning.ScanResult;
 import net.virtualinfinity.atrobots.hardware.scanning.ScanSource;
@@ -449,7 +450,7 @@ public class Robot extends TangibleArenaObject implements Resettable, HasHeading
     }
 
     public Missile createMissile(AbsoluteAngle heading, Position position, double power) {
-        return new Missile(this, position, heading, power, this.isOverburn());
+        return new Missile(new NewClazz004259518263177545Missile(this, position, heading, power, this.isOverburn()));
     }
 
     public void accept(ArenaObjectVisitor arenaObjectVisitor) {
