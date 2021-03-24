@@ -15,13 +15,13 @@ public class RobotScanResult implements ScanResult {
     private final int throttle;
     private final int accuracy;
 
-    public RobotScanResult(Robot match, double distance, AbsoluteAngle angle, int accuracy) {
-        this.match = match;
-        this.distance = distance;
-        this.angle = angle;
-        this.accuracy = accuracy;
-        heading = match.getHeading().getAngle();
-        throttle = match.getThrottle().getDesiredPower();
+    public RobotScanResult(NewClazz0048066509496196286RobotScanResult parameterObject) {
+        this.match = parameterObject.getMatch();
+        this.distance = parameterObject.getDistance();
+        this.angle = parameterObject.getAngle();
+        this.accuracy = parameterObject.getAccuracy();
+        heading = parameterObject.getMatch().getHeading().getAngle();
+        throttle = parameterObject.getMatch().getThrottle().getDesiredPower();
     }
 
     public RobotScanResult() {

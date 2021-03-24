@@ -71,7 +71,7 @@ public class RobotScanner extends ArenaObjectVisitorAdaptor {
         }
         final AbsoluteAngle angleToClosest = vectorToClosest.getAngle();
         final int accuracy = calculateAccuracy ? findAccuracy(angleToClosest) : 0;
-        return new RobotScanResult(closest, Math.sqrt(closestDistanceSquared), angleToClosest, accuracy);
+        return new RobotScanResult(new NewClazz0048066509496196286RobotScanResult(closest, Math.sqrt(closestDistanceSquared), angleToClosest, accuracy));
     }
 
     private int findAccuracy(AbsoluteAngle angleToClosest) {
