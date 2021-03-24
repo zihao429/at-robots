@@ -1,7 +1,5 @@
 package net.virtualinfinity.atrobots.compiler;
 
-import net.virtualinfinity.atrobots.arena.Arena;
-import net.virtualinfinity.atrobots.arena.RoundState;
 import net.virtualinfinity.atrobots.arena.RoundTimer;
 import net.virtualinfinity.atrobots.atsetup.AtRobotInterrupt;
 import net.virtualinfinity.atrobots.computer.InterruptHandler;
@@ -65,8 +63,8 @@ public class AtRobotInterruptFactory {
         return robot.createGetRobotInfoInterruptHandler(getDxCell(robot), getExCell(robot), getFxCell(robot));
     }
 
-    private InterruptHandler createGetGameInfoInterrupt(Robot robot, Arena arena, RoundState roundState) {
-        return new GetGameInfoInterrupt(getDxCell(robot), getExCell(robot), getFxCell(robot), roundState.getTotalRounds(), roundState.getRoundNumber(), arena);
+    private InterruptHandler createGetGameInfoInterrupt(NewClazz0036385873164493443AtRobotInterruptFactory parameterObject) {
+        return new GetGameInfoInterrupt(getDxCell(parameterObject.getRobot()), getExCell(parameterObject.getRobot()), getFxCell(parameterObject.getRobot()), parameterObject.getRoundState().getTotalRounds(), parameterObject.getRoundState().getRoundNumber(), parameterObject.getArena());
     }
 
     private InterruptHandler createGetTargetInfoInterrupt(Robot robot) {
@@ -131,31 +129,31 @@ public class AtRobotInterruptFactory {
         return new InvalidInterrupt(robot.getComputer());
     }
 
-    public Map<Integer, InterruptHandler> createInterruptTable(Robot robot, Arena arena, RoundState roundState) {
+    public Map<Integer, InterruptHandler> createInterruptTable(NewClazz0001642203775029305AtRobotInterruptFactory parameterObject) {
         Map<Integer, InterruptHandler> interrupts = new HashMap<Integer, InterruptHandler>();
 
-        mapHandler(interrupts, DESTRUCT, createDestructInterrupt(robot));
-        mapHandler(interrupts, RESET, createResetInterrupt(robot).costs(10));
-        mapHandler(interrupts, LOCATE, createLocateInterrupt(robot).costs(5));
-        mapHandler(interrupts, KEEPSHIFT, createSetKeepshiftInterrupt(robot).costs(2));
-        mapHandler(interrupts, OVERBURN, createOverburnInterrupt(robot).costs(1));
-        mapHandler(interrupts, ID, createGetTransponderIdInterrupt(robot).costs(2));
-        mapHandler(interrupts, TIMER, createGetTimerInterrupt(robot, arena.getRoundTimer()).costs(2));
-        mapHandler(interrupts, ANGLE, createFindAngleInterrupt(robot).costs(32));
-        mapHandler(interrupts, TARGETID, createGetTargetIdInterrupt(robot).costs(1));
-        mapHandler(interrupts, TARGETINFO, createGetTargetInfoInterrupt(robot).costs(2));
-        mapHandler(interrupts, GAMEINFO, createGetGameInfoInterrupt(robot, arena, roundState).costs(4));
-        mapHandler(interrupts, ROBOTINFO, createGetRobotInfoInterrupt(robot).costs(5));
-        mapHandler(interrupts, COLLISIONS, createGetCollisionsInterrupt(robot).costs(1));
-        mapHandler(interrupts, RESETCOLCNT, createResetCollisionCountInterrupt(robot).costs(1));
-        mapHandler(interrupts, TRANSMIT, createTransmitInterrupt(robot).costs(1));
-        mapHandler(interrupts, RECEIVE, createRecieveInterrupt(robot).costs(1));
-        mapHandler(interrupts, DATAREADY, createGetQueueSizeInterrupt(robot).costs(1));
-        mapHandler(interrupts, CLEARCOM, createResetQueueInterrupt(robot).costs(1));
-        mapHandler(interrupts, KILLS, createGetRobotStatisticsInterrupt(robot).costs(3));
-        mapHandler(interrupts, CLEARMETERS, createResetMetersInterrupt(robot).costs(1));
-        connectHandlers(robot, interrupts.values());
-        return new MapWithDefaultValue<Integer, InterruptHandler>(interrupts, createInvalidInterrupt(robot));
+        mapHandler(interrupts, DESTRUCT, createDestructInterrupt(parameterObject.getRobot()));
+        mapHandler(interrupts, RESET, createResetInterrupt(parameterObject.getRobot()).costs(10));
+        mapHandler(interrupts, LOCATE, createLocateInterrupt(parameterObject.getRobot()).costs(5));
+        mapHandler(interrupts, KEEPSHIFT, createSetKeepshiftInterrupt(parameterObject.getRobot()).costs(2));
+        mapHandler(interrupts, OVERBURN, createOverburnInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, ID, createGetTransponderIdInterrupt(parameterObject.getRobot()).costs(2));
+        mapHandler(interrupts, TIMER, createGetTimerInterrupt(parameterObject.getRobot(), parameterObject.getArena().getRoundTimer()).costs(2));
+        mapHandler(interrupts, ANGLE, createFindAngleInterrupt(parameterObject.getRobot()).costs(32));
+        mapHandler(interrupts, TARGETID, createGetTargetIdInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, TARGETINFO, createGetTargetInfoInterrupt(parameterObject.getRobot()).costs(2));
+        mapHandler(interrupts, GAMEINFO, createGetGameInfoInterrupt(new NewClazz0036385873164493443AtRobotInterruptFactory(parameterObject.getRobot(), parameterObject.getArena(), parameterObject.getRoundState())).costs(4));
+        mapHandler(interrupts, ROBOTINFO, createGetRobotInfoInterrupt(parameterObject.getRobot()).costs(5));
+        mapHandler(interrupts, COLLISIONS, createGetCollisionsInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, RESETCOLCNT, createResetCollisionCountInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, TRANSMIT, createTransmitInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, RECEIVE, createRecieveInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, DATAREADY, createGetQueueSizeInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, CLEARCOM, createResetQueueInterrupt(parameterObject.getRobot()).costs(1));
+        mapHandler(interrupts, KILLS, createGetRobotStatisticsInterrupt(parameterObject.getRobot()).costs(3));
+        mapHandler(interrupts, CLEARMETERS, createResetMetersInterrupt(parameterObject.getRobot()).costs(1));
+        connectHandlers(parameterObject.getRobot(), interrupts.values());
+        return new MapWithDefaultValue<Integer, InterruptHandler>(interrupts, createInvalidInterrupt(parameterObject.getRobot()));
     }
 
     private void mapHandler(Map<Integer, InterruptHandler> interrupts, AtRobotInterrupt interrupt, InterruptHandler handler) {

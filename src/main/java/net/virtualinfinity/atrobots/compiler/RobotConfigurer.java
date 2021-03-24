@@ -172,7 +172,7 @@ public class RobotConfigurer {
     }
 
     private Map<Integer, InterruptHandler> createInterruptHandlers(Arena arena, RoundState roundState) {
-        return getInterruptFactory().createInterruptTable(robot, arena, roundState);
+        return getInterruptFactory().createInterruptTable(new NewClazz0001642203775029305AtRobotInterruptFactory(robot, arena, roundState));
     }
 
     private AtRobotInterruptFactory getInterruptFactory() {
