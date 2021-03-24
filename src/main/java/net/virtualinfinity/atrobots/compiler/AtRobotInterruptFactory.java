@@ -86,7 +86,7 @@ public class AtRobotInterruptFactory {
     }
 
     private InterruptHandler createGetTimerInterrupt(Robot robot, RoundTimer roundTimer) {
-        return new GetTimerInterrupt(getExCell(robot), getFxCell(robot), roundTimer);
+        return new GetTimerInterrupt(new NewClazz007393049340774939GetTimerInterrupt(getExCell(robot), getFxCell(robot), roundTimer));
     }
 
     private InterruptHandler createGetTransponderIdInterrupt(Robot robot) {

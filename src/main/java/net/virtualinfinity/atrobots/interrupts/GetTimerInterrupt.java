@@ -12,11 +12,11 @@ public class GetTimerInterrupt extends InterruptHandler {
     private final MemoryCell highCell;
     private final RoundTimer roundTimer;
 
-    public GetTimerInterrupt(MemoryCell lowCell, MemoryCell highCell, RoundTimer roundTimer) {
+    public GetTimerInterrupt(NewClazz007393049340774939GetTimerInterrupt parameterObject) {
         super();
-        this.lowCell = lowCell;
-        this.highCell = highCell;
-        this.roundTimer = roundTimer;
+        this.lowCell = parameterObject.getLowCell();
+        this.highCell = parameterObject.getHighCell();
+        this.roundTimer = parameterObject.getRoundTimer();
     }
 
     public void handleInterrupt() {
